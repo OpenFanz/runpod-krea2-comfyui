@@ -5,10 +5,10 @@ account with the required minimum credit balance.
 
 ## Image evidence
 
-- GitHub Actions run: `29333306133` (`success`)
+- GitHub Actions run: `29334130814`, attempt 2 (`success`)
 - Image: `ghcr.io/openfanz/runpod-krea2-comfyui:cu128-torch280-comfyui-0aecac86-20260714`
-- OCI index digest: `sha256:9c6246fa7dad20588a89c9add3fbf22ad36aadb1ca90bd0fdf47a68363fae54f`
-- Linux/amd64 manifest: `sha256:b5f161acb407d97332c84fbf5c8af1fc131701dd6f5df2483dce159da0b21408`
+- OCI index digest: `sha256:41595c73cb21fc5a632387165b2ab8d39fa656681f868c8a75ccd530b1d69b16`
+- Linux/amd64 manifest: `sha256:9d3f6d091be653f4964d25ade50d73588a8d2a023d963e20d57a71e6f9b34348`
 - Anonymous pull: verified
 - ComfyUI commit: `0aecac867d7840b56ad790aa76c5e76e33c74c3d`
 
