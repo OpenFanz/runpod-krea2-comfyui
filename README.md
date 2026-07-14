@@ -10,5 +10,6 @@ Docker-backed private RunPod Pod template with official ComfyUI, JupyterLab, and
 - Volume: 100 GB Network Volume in `EU-RO-1`, mounted at `/workspace`
 - JupyterLab is intentionally tokenless.
 
-Models download resumably on first boot. Inspect `/workspace/.runpod/models-ready.json` through Jupyter at `/files/.runpod/models-ready.json`.
-
+Models download resumably on first boot. The machine-readable readiness state is
+stored at `/workspace/.runpod/models-ready.json`; the four model files remain
+visible in Jupyter under `/workspace/models`.

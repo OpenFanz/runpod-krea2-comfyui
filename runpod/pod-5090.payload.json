@@ -1,11 +1,11 @@
 {
   "name": "matrixlab-krea2-5090-verification",
-  "templateId": "d96x1zad3d",
+  "templateId": "bf739e5uod",
   "gpuTypeIds": ["NVIDIA GeForce RTX 5090"],
   "gpuTypePriority": "custom",
   "gpuCount": 1,
   "cloudType": "SECURE",
-  "dataCenterIds": ["EU-RO-1"],
+  "dataCenterIds": ["EU-RO-1", "EU-SE-1", "EU-CZ-1", "EU-NL-1", "EU-FR-1", "EUR-IS-1", "EUR-IS-2", "EUR-IS-3", "EUR-NO-1"],
   "dataCenterPriority": "custom",
   "allowedCudaVersions": ["12.8", "12.9", "13.0"],
   "containerDiskInGb": 30,
@@ -13,4 +13,3 @@
   "volumeMountPath": "/workspace",
   "ports": ["8188/http", "8888/http"]
 }
-
