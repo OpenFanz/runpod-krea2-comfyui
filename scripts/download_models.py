@@ -57,11 +57,15 @@ def download(relative: str, expected_size: int) -> Path:
     if offset:
         headers["Range"] = f"bytes={offset}-"
     request = urllib.request.Request(BASE + relative, headers=headers)
-    mode = "ab" if offset else "wb"
-    with urllib.request.urlopen(request, timeout=120) as response, part.open(mode) as output:
-        while chunk := response.read(16 * 1024 * 1024):
-            output.write(chunk)
-            output.flush()
+    with urllib.request.urlopen(request, timeout=120) as response:
+        # Some CDNs ignore Range. Appending a full 200 response to a partial file
+        # corrupts the download, so restart cleanly unless the server confirms 206.
+        resumed = offset > 0 and response.status == 206
+        mode = "ab" if resumed else "wb"
+        with part.open(mode) as output:
+            while chunk := response.read(16 * 1024 * 1024):
+                output.write(chunk)
+                output.flush()
     if part.stat().st_size != expected_size:
         raise RuntimeError(f"size mismatch for {relative}: {part.stat().st_size} != {expected_size}")
     part.replace(target)
@@ -89,4 +93,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
